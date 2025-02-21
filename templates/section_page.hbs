@@ -22,8 +22,8 @@
           <p class="page-header-description">{{section.description}}</p>
         {{/if}}
       </header>
-
-      {{#if section.sections}}
+      {{! BEGIN ALIDA CUSTOMIZATION: Style subsections as boxes}}
+      {{!-- {{#if section.sections}}
         <ul class="section-list">
           {{#each section.sections}}
           <li class="section-list-item">
@@ -36,8 +36,22 @@
             </li>
           {{/each}}
         </ul>
+      {{/if}} --}}
+      {{#if section.sections}}
+        <section class="sections blocks">
+          <ul class="blocks-list">
+            {{#each section.sections}}
+              <li class="blocks-item">
+                <a href="{{url}}" class="blocks-item-link">
+                  <h4 class="blocks-item-title">{{name}}</h4>
+                  <p class="blocks-item-description">{{excerpt description}}</p>
+                </a>
+              </li>
+            {{/each}}
+          </ul>
+        </section>
       {{/if}}
-
+      {{! END ALIDA CUSTOMIZATION }}
       {{pagination "section.sections"}}
 
       {{#if section.articles}}
